@@ -1,0 +1,25 @@
+{
+  "name": "newspaper-app",
+  "version": "1.0.0",
+  "description": "Beckend for Newspaper Destribution System.",
+  "main": "app.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon app.js",
+    "prod": "NODE_ENV=production node app.js"
+  },
+  "author": "AMQL3it",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.30.0"
+  }
+}
