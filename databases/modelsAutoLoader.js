@@ -1,5 +1,9 @@
 const sequelize = require("./config");
 const Member = require("../models/memberModel");
+const Field = require("../models/fieldModel");
+const Building = require("../models/buildingModel");
+const Room = require("../models/roomModel");
+const Newspaper = require("../models/newspaperModel");
 
 exports.connectToDatabase = async () => {
     try {
@@ -14,6 +18,10 @@ exports.connectToDatabase = async () => {
 
 const Models = {
     'members': Member,
+    'fields': Field,
+    'buildings': Building,
+    'rooms': Room,
+    'newspapers': Newspaper
 };
 
 exports.modelsAutoLoader = async () => {

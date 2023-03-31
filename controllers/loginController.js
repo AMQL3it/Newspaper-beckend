@@ -5,7 +5,6 @@ const Member = require('../models/memberModel');
 const { Op } = require('sequelize');
 
 
-
 // Get Login Page
 exports.getLogin = (req, res) => {
     //res.locals.title = "Login Page";

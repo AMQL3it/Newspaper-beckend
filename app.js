@@ -8,6 +8,7 @@ const path = require('path');
 const DB = require('./databases/modelsAutoLoader');
 const adminRouter = require('./routes/adminRouter');
 const loginRouter = require('./routes/loginRouter');
+const membersRouter = require('./routes/membersRouter');
 const Error = require('./middlewares/common/errorHandler');
 
 const app = express();
@@ -31,7 +32,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 // Routing setup
 app.use('/',loginRouter);
 app.use('/admin', adminRouter);
-//app.use('/users', usersRouter);
+app.use('/members', membersRouter);
 
 // 404 not found handler
 app.use(Error.notFoundHandler);
