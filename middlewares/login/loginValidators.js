@@ -1,7 +1,7 @@
 const { check, validationResult } = require("express-validator");
 const createError = require('http-errors');
 
-const doLoginValidators = [
+const loginDataFilter = [
     check('userName')
         .isLength({ min: 1 })
         .withMessage('Mobile number or Email is required!')
@@ -12,8 +12,7 @@ const doLoginValidators = [
         .trim()
 ];
 
-
-doLoginValidatorHandler = (req, res, next) => {
+loginDataFilterHandler = (req, res, next) => {
     const errors = validationResult(req);
     const mappedErrors = errors.mapped();
 
@@ -29,6 +28,6 @@ doLoginValidatorHandler = (req, res, next) => {
 };
 
 module.exports = {
-    doLoginValidators,
-    doLoginValidatorHandler
+    loginDataFilter,
+    loginDataFilterHandler
 };

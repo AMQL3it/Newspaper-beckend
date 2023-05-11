@@ -1,15 +1,9 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const createError = require('http-errors');
-const Member = require('../models/memberModel');
+const Member = require('../models/adminModel');
 const { Op } = require('sequelize');
 
-
-// Get Login Page
-exports.getLogin = (req, res) => {
-    //res.locals.title = "Login Page";
-    res.render('loginPage');
-};
 
 exports.loginAccess = async (req, res) => {
     try{
@@ -31,8 +25,7 @@ exports.loginAccess = async (req, res) => {
                 const memberObject = {
                     userName: member.member_name, 
                     userEmail: member.member_email, 
-                    userPhone: member.member_phone, 
-                    userRole: member.role
+                    userPhone: member.member_phone
                 };
 
                 // generate token
@@ -51,7 +44,7 @@ exports.loginAccess = async (req, res) => {
                 res.locals.loggedInMember = memberObject;
 
                 res.status(200).json({
-                    message: "Member was login successfully",
+                    message: "Admin was login successfully",
                     //token: token
                     data: memberObject
                 });
@@ -82,5 +75,5 @@ exports.logout = (req, res) => {
 
 exports.getRegisterForm = (req, res) => {
     //res.locals.title = "Login Page";
-    res.render('registerPage');
+    //res.render('registerPage');
 };

@@ -1,14 +1,19 @@
+const Admin = require("../models/adminModel");
+const Batch = require("../models/batchModel");
+const Class_Schedule = require("../models/classScheduleModel");
+const Exam = require("../models/examModel");
+const Exam_Result = require("../models/examResultModel");
+const Exam_Schedule = require("../models/examScheduleModel");
+const Lecture = require("../models/lectureModel");
+const Student = require("../models/studentModel");
+const Teacher = require("../models/teacherModel");
+const Teacher_Payment = require("../models/teacherPaymentModel");
 const sequelize = require("./config");
-const Member = require("../models/memberModel");
-const Field = require("../models/fieldModel");
-const Building = require("../models/buildingModel");
-const Room = require("../models/roomModel");
-const Newspaper = require("../models/newspaperModel");
 
 exports.connectToDatabase = async () => {
     try {
       await sequelize.authenticate();
-      console.log('Database connection successfully.');
+      console.log('Youth Academy DB connection successfully.');
       return sequelize; 
     } catch (error) {
       console.error('Unable to connect to the database:',error);
@@ -17,13 +22,19 @@ exports.connectToDatabase = async () => {
 };
 
 const Models = {
-    'members': Member,
-    'fields': Field,
-    'buildings': Building,
-    'rooms': Room,
-    'newspapers': Newspaper
+  'admins': Admin,
+  'batches': Batch,
+  'students': Student,
+  'teachers': Teacher,
+  'lectures': Lecture,
+  'exams': Exam,
+  'class_schedules': Class_Schedule,
+  'exam_schedules': Exam_Schedule,
+  'exam_results': Exam_Result,
+  'teacher_payments': Teacher_Payment
 };
 
+// { alter: true }
 exports.modelsAutoLoader = async () => {
     try {
       for (const modelName in Models) {
